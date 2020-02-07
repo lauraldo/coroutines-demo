@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CoroutinesDemo</string>
+    <string name="no_details_available">No details available</string>
+</resources>
