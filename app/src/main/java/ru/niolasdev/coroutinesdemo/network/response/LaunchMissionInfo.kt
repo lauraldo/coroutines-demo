@@ -2,10 +2,9 @@ package ru.niolasdev.coroutinesdemo.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import ru.niolasdev.coroutinesdemo.core.Convertable
 import ru.niolasdev.coroutinesdemo.domain.LaunchMission
 
-class LaunchMissionInfo: Convertable {
+class LaunchMissionInfo {
 
     @SerializedName("flight_number")
     @Expose
@@ -31,7 +30,7 @@ class LaunchMissionInfo: Convertable {
     @Expose
     var links: MissionLinksInfo? = null
 
-    override fun convert(): LaunchMission =
+    fun convert(): LaunchMission =
         LaunchMission(
             id,
             name,
