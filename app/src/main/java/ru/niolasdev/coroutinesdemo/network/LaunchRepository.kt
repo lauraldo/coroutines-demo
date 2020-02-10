@@ -1,12 +1,17 @@
 package ru.niolasdev.coroutinesdemo.network
 
-class LaunchRepository {
+import java.lang.Exception
 
-    var client = RetrofitService.createService(
+class LaunchRepository {
+    private val client = RetrofitService.createService(
         SpaceXApi::class.java
     )
 
-    suspend fun getPastLaunches() = client.getPastLaunches().map {
-        it.convert()
+    suspend fun getPastLaunches() = try {
+        client.getPastLaunches().map {
+            it.convert()
+        }
+    } catch (e: Exception) {
+        null
     }
 }

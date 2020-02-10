@@ -9,11 +9,10 @@ import ru.niolasdev.coroutinesdemo.network.LaunchRepository
 
 class MissionViewModel : ViewModel() {
 
-    private val launchRepository =
-        LaunchRepository()
+    private val launchRepository = LaunchRepository()
 
     var missionLaunchList: LiveData<List<LaunchMission>> = liveData(Dispatchers.IO) {
-        val retrievedData = launchRepository.getPastLaunches()
+        val retrievedData = launchRepository.getPastLaunches() ?: listOf()
         emit(retrievedData)
     }
 
